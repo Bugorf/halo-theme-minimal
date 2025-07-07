@@ -1,0 +1,23 @@
+<main id="postsSection" class="posts-section min-w-0 flex flex-col">
+    <article
+        class="post mb-8 pb-4 border-b border-border-color opacity-0 translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] w-full"
+        th:each="post : ${posts}">
+        <div class="mb-4 w-full" th:with="tags = ${post.tags}">
+            <a th:if="${#lists.size(post.categories)} gt 0" th:href="@{${post.categories[0].status.permalink}}"
+                th:text="${post.categories[0].spec.displayName}"
+                class="inline-block bg-hover-bg text-text-light px-2 py-1 rounded text-xs tracking-tight mb-2 no-underline break-words">
+            </a>
+            <a th:each="tag : ${tags}" th:href="${tag.status.permalink}" th:text="'#' + ${tag.spec.displayName}"
+                class="inline-block bg-bg-tag text-text-light px-2 py-1 rounded text-xs tracking-tight mb-2 ml-2 no-underline break-words">
+            </a>
+
+            <a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}"
+                class="text-2xl font-normal mb-2 text-text-color no-underline block transition-colors duration-300 hover:text-text-light break-words"></a>
+            <div class="text-xs text-text-lightest uppercase tracking-wide flex items-center gap-4">
+                <span th:text="${#temporals.format(post.spec.publishTime, 'yyyy年MM月dd日')}"></span>
+            </div>
+        </div>
+        <div class="text-text-light my-5 break-words leading-[1.8]" th:text="${post.status.excerpt}"></div>
+    </article>
+
+</main>

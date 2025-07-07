@@ -1,0 +1,51 @@
+body {
+  background: #f2f2f2;
+}
+
+ul {
+  list-style: decimal;
+}
+
+:root {
+  --bg-color: #fefefe;
+  --text-color: #333;
+  --text-light: #666;
+  --text-lighter: #888;
+  --text-lightest: #aaa;
+  --border-color: #eee;
+  --border-color-dark: #ddd;
+  --card-bg: #fafafa;
+  --bg-tag: #f0f0f0;
+  --hover-bg: #d0d0d0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --accent-color: #4a90e2;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #f5222d;
+  --info-color: #1890ff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --text-light: #b0b0b0;
+  --text-lighter: #888;
+  --text-lightest: #666;
+  --border-color: #333;
+  --border-color-dark: #444;
+  --card-bg: #2a2a2a;
+  --hover-bg: #3a3a3a;
+  --bg-tag: #333333;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --accent-color: #5aa3f0;
+  --success-color: #73d13d;
+  --warning-color: #ffc53d;
+  --error-color: #ff4d4f;
+  --info-color: #40a9ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

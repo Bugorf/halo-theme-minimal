@@ -1,0 +1,69 @@
+<header class="sm:relative sticky top-0 z-10">
+  <!-- 大屏幕 -->
+  <div class="hidden sm:block text-center mb-16 border-b border-border-color">
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-8 sm:mb-10">
+      <a th:text="${theme.config.info.siteTitle} ?: 'Minimal'" href="/"
+        class="text-text-color text-3xl font-normal tracking-wide no-underline transition-colors duration-300 hover:text-text-light">
+      </a>
+
+      <div class="relative flex items-center mt-6 sm:mt-0">
+
+        <div class="flex gap-2 transition-opacity duration-300 control-buttons">
+          <button
+            class="flex items-center justify-center min-w-11 px-3 py-2 border border-border-color-dark rounded-full text-sm text-text-color cursor-pointer transition-all duration-300 hover:bg-hover-bg"
+            onclick="toggleTheme()">
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button th:if="${pluginFinder.available('PluginSearchWidget')}"
+            class="flex items-center justify-center min-w-11 px-3 py-2 border border-border-color-dark rounded-full text-sm text-text-color cursor-pointer transition-all duration-300 hover:bg-hover-bg search-modal" >
+            <a href="javascript:SearchWidget.open()">🔍</a>
+          </button>
+          <button
+            class="flex items-center justify-center min-w-11 px-3 py-2 border border-border-color-dark rounded-full text-sm text-text-color cursor-pointer transition-all duration-300 hover:bg-hover-bg menu-toggle"
+            onclick="toggleMenu()">
+            🍔
+          </button>
+        </div>
+
+
+        <div class="flex items-center gap-0 overflow-hidden header-menu" th:with="menu = ${menuFinder.getPrimary()}">
+          <a th:each="menuItem : ${menu.menuItems}" 
+            th:href="@{${menuItem.status.href}}"
+            th:text="${menuItem.status.displayName}" 
+            class="block px-3 py-2 text-text-light no-underline text-sm rounded-full transition-all duration-300
+                    uppercase tracking-wide whitespace-nowrap border border-border-color-dark bg-bg-color ml-2 opacity-0
+                    translate-x-12 menu-item"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 小屏幕 -->
+  <div
+    class="sm:hidden mb-8 flex flex-col rounded-xl bg-card-bg shadow-sm transition-all dark:bg-card-bg">
+    <div class="flex h-16 items-center justify-between px-4 py-3">
+      <!-- 左侧菜单按钮 -->
+      <div class="cursor-pointer text-gray-600 dark:text-slate-100" onclick="openMenu()">
+        <div id="burger" class="text-lg hover:text-blue-600">🍔</div>
+      </div>
+
+      <!-- 中间的标题 -->
+      <div class="flex-1 text-center">
+        <a href="/">
+          <div class="text-xl font-semibold text-gray-600 dark:text-slate-100" th:text="${site.title}"></div>
+        </a>
+      </div>
+
+      <!-- 右侧搜索按钮 -->
+      <div class="cursor-pointer text-gray-600 dark:text-slate-100">
+        <a href="javascript:SearchWidget.open()" title="搜索" class="text-lg hover:text-blue-600">🔍</a>
+      </div>
+    </div>
+
+    <!-- 展开菜单项 -->
+    <div id="menu" class="flex flex-col gap-4 items-center py-4 hidden" th:with="menu = ${menuFinder.getPrimary()}">
+      <a th:each="menuItem : ${menu.menuItems}" th:href="@{${menuItem.status.href}}"
+        th:text="${menuItem.status.displayName}" class="text-base text-text-color hover:text-blue-600"></a>
+    </div>
+  </div>
+</header>

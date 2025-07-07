@@ -1,0 +1,21 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: halo-theme-minimal
+spec:
+  displayName: Minimal
+  author:
+    name: Bugorf
+    website: https://alloworld.me
+  description: 一款专注内容和UI的极简风格主题
+  logo: /themes/halo-theme-minimal/assets/images/logo_M.png
+  homepage: https://github.com/Bugorf/halo-theme-minimal
+  repo: https://github.com/Bugorf/halo-theme-minimal.git
+  issues: https://github.com/Bugorf/halo-theme-minimal/issues
+  settingName: "halo-theme-minimal-setting"
+  configMapName: "halo-theme-minimal-configMap"
+  version: 0.1.0
+  requires: ">=2.20.0"
+  license:
+    - name: "GPL-3.0"
+      url: "https://github.com/Bugorf/halo-theme-minimal/blob/main/LICENSE"

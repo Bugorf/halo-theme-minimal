@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:replace="~{modules/layout :: layout(home=false)}">
+
+    <th:block th:fragment="content">
+        <ul class="translate-y-5 animate-[fadeInUp_0.6s_ease_forwards]">
+            <li th:each="tag : ${tags}" >
+                <a th:text="${tag.spec.displayName}" th:href="${tag.status.permalink}"></a>
+            </li>
+        </ul>
+    </th:block>
+
+</html>

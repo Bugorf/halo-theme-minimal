@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:replace="~{modules/layout :: layout(home=false)}">
+
+  <th:block th:fragment="content">
+    <div>
+      <h1 th:text="${tag.spec.displayName}"></h1>
+      <ul>
+        <li th:each="post : ${posts.items}">
+          <a th:text="${post.spec.title}" th:href="${post.status.permalink}"></a>
+        </li>
+      </ul>
+      <div th:if="${posts.hasPrevious() || posts.hasNext()}">
+        <a th:href="@{${posts.prevUrl}}">
+          <span>上一页</span>
+        </a>
+        <span th:text="${posts.page} +' / '+ ${posts.total}"></span>
+        <a th:href="@{${posts.nextUrl}}">
+          <span>下一页</span>
+        </a>
+      </div>
+    </div>
+  </th:block>
+
+</html>

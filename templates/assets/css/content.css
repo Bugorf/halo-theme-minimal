@@ -1,0 +1,243 @@
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--text-color);
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    padding-bottom: 0.3rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: var(--text-light);
+}
+
+h4 {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+h5 {
+    font-size: 0.9rem;
+    color: var(--text-lighter);
+}
+
+h6 {
+    font-size: 1rem;
+    color: var(--text-lighter);
+}
+
+p {
+    margin: 1em 0;
+    color: var(--text-light);
+}
+
+/* 行内代码 */
+code {
+    background: var(--hover-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.85em;
+    color: var(--accent-color);
+}
+
+/* 引用 */
+blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding: 5px 10px;
+    margin: 1.5em 0;
+    background: var(--card-bg);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+/* 列表 */
+ul, ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+ul {
+    list-style: decimal;
+}
+
+ol {
+    list-style: disc;
+}
+
+li {
+    margin: 0.5em 0;
+    color: var(--text-light);
+}
+
+ul li::marker {
+    color: var(--accent-color);
+}
+
+ol li::marker {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* 提示条 */
+.alert {
+    padding: 16px 20px;
+    margin: 1.5em 0;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+
+.alert::before {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.alert-content {
+    margin-left: 2em;
+}
+
+.alert-info {
+    background: rgba(24, 144, 255, 0.1);
+    border-left-color: var(--info-color);
+    color: var(--info-color);
+}
+
+.alert-info::before {
+    content: "ℹ";
+}
+
+.alert-success {
+    background: rgba(82, 196, 26, 0.1);
+    border-left-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.alert-success::before {
+    content: "✓";
+}
+
+.alert-warning {
+    background: rgba(250, 173, 20, 0.1);
+    border-left-color: var(--warning-color);
+    color: var(--warning-color);
+}
+
+.alert-warning::before {
+    content: "⚠";
+}
+
+.alert-error {
+    background: rgba(245, 34, 45, 0.1);
+    border-left-color: var(--error-color);
+    color: var(--error-color);
+}
+
+.alert-error::before {
+    content: "✕";
+}
+
+/* 行内标签 */
+.tag {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 2px 4px;
+    background: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 0.8em;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: var(--border-color);
+    transform: translateY(-1px);
+}
+
+.tag-primary {
+    background: rgba(74, 144, 226, 0.1);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.tag-success {
+    background: rgba(82, 196, 26, 0.1);
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.tag-warning {
+    background: rgba(250, 173, 20, 0.1);
+    border-color: var(--warning-color);
+    color: var(--warning-color);
+}
+
+.tag-error {
+    background: rgba(245, 34, 45, 0.1);
+    border-color: var(--error-color);
+    color: var(--error-color);
+}
+
+/* 折叠块 */
+.clp {
+    margin: 1.5em 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.clp-header {
+    background: var(--card-bg);
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.clp-header:hover {
+    background: var(--hover-bg);
+}
+
+.clp-icon {
+    transition: transform 0.3s ease;
+    font-size: 1.2em;
+}
+
+.clp.open .clp-icon {
+    transform: rotate(180deg);
+}
+
+.clp-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.clp.open .clp-content {
+    max-height: 500px;
+}
+
+.clp-inner {
+    padding: 20px;
+    background: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+}

@@ -1,0 +1,39 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: halo-theme-minimal-setting
+spec:
+  forms:
+    - group: info
+      label: 站点信息
+      formSchema:
+        - $formkit: text
+          name: siteTitle
+          label: 网站标题
+          value: 
+        - $formkit: text
+          name: siteSubtitle
+          label: 网站副标题
+          value: 
+        - $formkit: group
+          name: favicon
+          value:
+          children:
+            - $formkit: attachment
+              name: ico
+              label: 网站logo(推荐.ico格式，16x16)
+        - $formkit: group
+          name: profile
+          value:
+          children:
+            - $formkit: attachment
+              name: logo
+              label: 头像
+        - $formkit: text
+          name: profileName
+          label: 用户名
+          value: 
+        - $formkit: text
+          name: bio
+          label: 个性签名
+          value:

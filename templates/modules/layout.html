@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(home)">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${theme.config.info.siteTitle} ?: 'Minimal'"></title>
+    <link rel="icon" type="image/x-icon" th:if="${theme.config.favicon.ico}" th:href="${theme.config.favicon.ico}" />
+    <link th:href="@{/assets/dist/style.css}" rel="stylesheet">
+</head>
+
+<body
+    class="font-serif leading-relaxed text-base text-text-color bg-bg-color transition-colors duration-300 ease-in-out">
+    <div class="sm:max-w-[80%] max-w-[90%] mx-auto px-5 py-10">
+
+        <th:block th:replace="~{modules/header}"></th:block>
+
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-10 md:gap-16 mb-16"
+            th:with="stats = ${siteStatsFinder.getStats()}">
+
+            <!-- 站点信息(小屏幕版) -->
+            <div th:if="${home}"
+                class="sm:hidden sidebar-section mb-10 p-5 bg-card-bg rounded-lg opacity-0 translate-y-5 animate-[fadeInUp_0.6s_ease_forwards]">
+                <div class="text-center">
+                    <div
+                        class="w-24 rounded-full bg-border-color mx-auto mb-4 flex items-center justify-center text-4xl text-text-lighter">
+                        <img th:src="${not #strings.isEmpty(theme.config.info.profile.logo) ? theme.config.info.profile.logo : '/themes/halo-theme-minimal/assets/images/default_avatar.jpeg'}"
+                            th:alt="${site.title}" width="96" height="96" class="size-full rounded-full object-cover" />
+                    </div>
+                    <div class="text-base font-medium text-text-color mb-2"
+                        th:text="${theme.config.info.profileName} ?: ${site.title}"></div>
+                    <div class="text-xs text-text-lighter leading-tight mb-4"
+                        th:text="${theme.config.info.bio} ?: 'Less is More'">
+                    </div>
+                    <div class="flex justify-between gap-4 w-full mt-8">
+                        <a href="/archives">
+                            <div class="flex flex-col items-center flex-1">
+                                <span class="text-xl font-medium tabular-nums text-text-color"
+                                    th:text="${stats.post}"></span>
+                                <span class="text-xs font-light text-text-lightest" th:text="文章"></span>
+                            </div>
+                        </a>
+
+                        <a href="/categories">
+                            <div class="flex flex-col items-center flex-1">
+                                <span class="text-xl font-medium tabular-nums text-text-color"
+                                    th:text="${stats.category}"></span>
+                                <span class="text-xs font-light text-text-lightest" th:text="分类"></span>
+                            </div>
+                        </a>
+                        <a href="/about">
+                            <div class="flex flex-col items-center flex-1">
+                                <span class="text-xl font-medium tabular-nums text-text-color"
+                                    th:text="${stats.visit}"></span>
+                                <span class="text-xs font-light text-text-lightest" th:text="访问量"></span>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="min-w-0 break-words">
+                <th:block th:replace="~{::content}"></th:block>
+            </div>
+            <div>
+                <th:block th:replace="~{modules/slidebar}"></th:block>
+            </div>
+
+        </div>
+
+        <th:block th:replace="~{modules/footer}"></th:block>
+    </div>
+
+    <!-- 小屏幕黑夜模式按钮 -->
+    <button id="themeToggleBtn" class="sm:hidden fixed bottom-5 right-5 w-12 h-12 rounded-full bg-black"
+        onclick="toggleTheme()">
+        <span id="theme-icon">🌙✨</span>
+    </button>
+
+    <script th:src="@{/assets/js/main.js}" defer></script>
+</body>
+
+</html>
