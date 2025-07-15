@@ -54,7 +54,10 @@
       <!-- 中间的标题 -->
       <div class="flex-1 text-center">
         <a href="/">
-          <div class="text-xl font-semibold text-gray-600 dark:text-slate-100" th:text="${site.title}"></div>
+          <div
+            class="text-xl font-semibold text-gray-600 dark:text-slate-100"
+            th:text="${theme.config.info.siteTitle} ?: ${site.title}"
+          ></div>
         </a>
       </div>
 

@@ -15,7 +15,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title th:text="${theme.config.info.siteTitle} ?: 'Minimal'"></title>
-    <link rel="icon" type="image/x-icon" th:if="${theme.config.favicon.ico}" th:href="${theme.config.favicon.ico}" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      th:if="${theme.config.info.favicon.ico}"
+      th:href="${theme.config.info.favicon.ico}"
+    />
     <link rel="stylesheet" th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}" />
     <script th:src="@{/assets/dist/main.iife.js?v={version}(version=${theme.spec.version})}"></script>
   </head>
