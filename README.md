@@ -30,20 +30,25 @@
 - ✅ 版权声明模块
 - ✅ 底部导航栏
 - ✅ 总字数统计
+- ✅ Prism.js自定义代码高亮（详见下文）
 - ⬜️ 过时提醒
 
 # 😎 使用
+
 <p>
-直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v0.2.1-blue.svg", alt="github"></a>
+直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v0.3-blue.svg", alt="github"></a>
 压缩包，后台上传即可。具体安装方式可参考<a href="https://docs.halo.run/user-guide/themes">Halo官方教程</a>
 </p>
 
 - ## ⚠️ 提示条，折叠块使用注意事项
-    某些组件效果只能依靠插件实现，但是目前并没有开发插件的想法。光主题就已经让人头大了。也许之后有机会可以尝试... 
-    
-    目前可通过插入以下格式化代码用于对应组件，效果如下: 
+
+    `某些组件效果只能依靠插件实现，但是目前并没有开发插件的想法。光主题就已经让人头大了。也许之后有机会可以尝试...`
+
+    目前可通过插入以下格式化代码用于对应组件，效果如下:
     ![提示条](./screenshots/screenshot.png)
-    ### 提示条 - Info
+
+  ### 提示条 - Info
+
     ```html
         <div class="alert alert-info">
             <div class="alert-content">
@@ -53,7 +58,8 @@
         </div>
     ```
 
-    ### 提示条 - Success
+  ### 提示条 - Success
+
     ```html
         <div class="alert alert-success">
             <div class="alert-content">
@@ -63,7 +69,8 @@
         </div>
     ```
 
-    ### 提示条 - Warning
+  ### 提示条 - Warning
+
     ```html
         <div class="alert alert-warning">
             <div class="alert-content">
@@ -73,7 +80,8 @@
         </div>
     ```
 
-    ### 提示条 - Error
+  ### 提示条 - Error
+
     ```html
         <div class="alert alert-error">
             <div class="alert-content">
@@ -83,7 +91,8 @@
         </div>
     ```
 
-    ### 折叠块
+  ### 折叠块
+
     ``` html
         <div class="clp">
         <div class="clp-header" onclick="toggleCollapse(this)">
@@ -98,7 +107,92 @@
     </div>
     ```
 
-    
+- ## ⚠️ Prism.js使用注意事项
+
+    官方的代码高亮插件没有适配深色模式，遂决定使用其他第三方库。网上搜罗一圈，发现Prism.js是一个不错的选择。
+
+    高亮显示已适配深色模式，可通过切换深色模式按钮实时生效，无需刷新页面，以下是具体效果：
+
+    |浅色模式|深色模式|
+    |---|---|
+    |![light](./screenshots/lh-h.png)|![dark](./screenshots/lh.png)|
+
+    👀 颜色可自定义，对应CSS样式位于 assets -> content.css
+
+    本主题额外添加了Prism.js三个比较实用的插件，分别是：
+  - 高亮插件，支持自定义颜色。
+    ![light](./screenshots/lh.png)
+
+  - 文件树视图插件
+    ![light](./screenshots/tree.png)
+
+  - 命令行模拟插件
+    ![light](./screenshots/ct.png)
+
+  ### 高亮
+
+    ```html
+        <pre class="line-numbers" data-line="4-5, 8,11,14,17,20,23-25" m-info="11" m-success="14" m-warning="17" m-error="20,23-25"> 
+            <code class="language-javascript">
+
+                //普通多行高亮
+                console.log("Allo");
+                console.log("World");
+
+                //普通单行高亮
+                console.log("ok");
+
+                // info高亮
+                alert("Info !");
+
+                // Success高亮
+                alert("Success !");
+
+                // Warning高亮
+                alert("Warning !");
+
+                // Error高亮
+                alert("Fetal error !");
+
+                // 自定义多行高亮
+                alert("Fetal error: ");
+                alert("A huge bug");
+                alert("was born !!");
+            </code>
+        </pre>
+    ```
+
+  ### 文件树
+
+    ```html
+        <pre class="language-treeview">
+            <code>
+                root_folder/
+                ├── a_file.txt
+                ├── subfolder/
+                │   ├── nested_file.txt
+                │   └── another_file.txt
+                └── last_file.txt
+            </code>
+        </pre>
+    ```
+
+  ### 命令行
+
+    ```html
+        <pre class="command-line language-bash" data-user="chris" data-host="remotehost" data-output="2, 4-8" tabindex="0">
+            <code class="language-bash">pwd
+                /usr/home/chris/bin
+                ls -la
+                total 2
+                drwxr-xr-x   2 chris  chris     11 Jan 10 16:48 .
+                drwxr--r-x  45 chris  chris     92 Feb 14 11:10 ..
+                -rwxr-xr-x   1 chris  chris    444 Aug 25  2013 backup
+                -rwxr-xr-x   1 chris  chris    642 Jan 17 14:42 deploy
+            </code>
+        </pre>
+    ```
+
 # 🔬 开发
 
 ```

@@ -11,11 +11,13 @@ function toggleTheme() {
         htmlElement.removeAttribute('data-theme');
         localStorage.setItem('theme', 'light');
         changeIcon("light");
+        applyPrismTheme();
     } else {
         // 切换到夜间模式
         htmlElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
         changeIcon("dark");
+        applyPrismTheme();
     }
 }
 
@@ -23,6 +25,7 @@ function toggleTheme() {
 document.addEventListener('DOMContentLoaded', () => {
     const theme = document.documentElement.getAttribute('data-theme');
     changeIcon(theme);
+    applyPrismTheme();
 });
 
 function changeIcon(mode) {
@@ -81,3 +84,96 @@ function toggleCollapse(header) {
     const collapse = header.parentElement;
     collapse.classList.toggle('open');
 }
+
+// 代码高亮
+function applyPrismTheme() {
+    const existing = document.getElementById('prism-theme');
+    const href = localStorage.getItem("theme") === 'dark'
+        ? 'https://cdn.jsdelivr.net/npm/prismjs/themes/prism-okaidia.css'
+        : 'https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css';
+
+    if (existing) {
+        existing.href = href;
+    } else {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.id = 'prism-theme';
+        link.href = href;
+        document.head.appendChild(link);
+    }
+}
+
+function parseLineNumbers(lineStr) {
+    const lines = [];
+    const parts = lineStr.split(',');
+
+    parts.forEach(part => {
+        part = part.trim();
+        if (part.includes('-')) {
+            const [start, end] = part.split('-').map(num => parseInt(num.trim()));
+            for (let i = start; i <= end; i++) {
+                lines.push(i);
+            }
+        } else {
+            lines.push(parseInt(part));
+        }
+    });
+
+    return lines;
+}
+
+function applyHighlight() {
+    const preElements = document.querySelectorAll('pre[m-info], pre[m-error], pre[m-warning], pre[m-success]');
+
+    preElements.forEach(pre => {
+        const mInfo = pre.getAttribute('m-info');
+        const mError = pre.getAttribute('m-error');
+        const mWarning = pre.getAttribute('m-warning');
+        const mSuccess = pre.getAttribute('m-success');
+
+        const lineHighlights = pre.querySelectorAll('.line-highlight');
+
+        lineHighlights.forEach(highlightDiv => {
+            const dataRange = highlightDiv.getAttribute('data-range');
+            if (!dataRange) return;
+
+            const rangeLines = parseLineNumbers(dataRange);
+
+            if (mInfo) {
+                const infoLines = parseLineNumbers(mInfo);
+                const hasMatch = rangeLines.some(rangeLine => infoLines.includes(rangeLine));
+                if (hasMatch) {
+                    highlightDiv.classList.add('m-info-highlight');
+                }
+            }
+
+            if (mError) {
+                const errorLines = parseLineNumbers(mError);
+                const hasMatch = rangeLines.some(rangeLine => errorLines.includes(rangeLine));
+                if (hasMatch) {
+                    highlightDiv.classList.add('m-error-highlight');
+                }
+            }
+
+            if (mWarning) {
+                const warningLines = parseLineNumbers(mWarning);
+                const hasMatch = rangeLines.some(rangeLine => warningLines.includes(rangeLine));
+                if (hasMatch) {
+                    highlightDiv.classList.add('m-warning-highlight');
+                }
+            }
+
+            if (mSuccess) {
+                const successLines = parseLineNumbers(mSuccess);
+                const hasMatch = rangeLines.some(rangeLine => successLines.includes(rangeLine));
+                if (hasMatch) {
+                    highlightDiv.classList.add('m-success-highlight');
+                }
+            }
+        });
+    });
+}
+
+window.addEventListener('load', () => {
+    applyHighlight();
+});

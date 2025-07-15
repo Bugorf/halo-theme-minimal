@@ -245,3 +245,76 @@ ol li::marker {
     background: var(--bg-color);
     border-top: 1px solid var(--border-color);
 }
+
+
+/* 代码块 */
+.line-highlight {
+    background-color: rgba(208, 208, 208, 0.3);
+    box-shadow: inset 5px 0 0 rgba(100, 100, 100, 0.8);;
+}
+
+[data-theme="dark"] .line-highlight {
+    background-color: rgba(58, 58, 58, 0.3);
+    box-shadow: inset 5px 0 0 rgba(200, 200, 200, 0.8);
+}
+
+/* 自定义高亮样式 */
+.m-info-highlight {
+   background-color: rgba(24, 144, 255, 0.3) !important;
+}
+
+.m-success-highlight {
+   background-color: rgba(82, 196, 26, 0.3) !important;
+}
+
+.m-warning-highlight {
+   background-color: rgba(250, 173, 20, 0.3) !important;
+}
+
+.m-error-highlight {
+   background-color: rgba(245, 34, 45, 0.3) !important;
+}
+
+.toolbar {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+.copy-to-clipboard-button {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    z-index: 10;
+    color: #eee !important;
+    border: none !important;
+    padding: 0.4em 0.8em !important;
+    cursor: pointer;
+    font-size: 0.85em !important;
+    text-align: center;
+    text-decoration: none;
+    opacity: 1 !important;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    background-color: #555 !important;
+    border-bottom: 3px solid #3a3a3a !important;
+    border-right: 1px solid #4c4c4c !important;
+    border-left: 1px solid #4c4c4c !important;
+    border-radius: 5px !important;
+}
+
+.copy-to-clipboard-button:active {
+    transform: translateY(2px);
+    border-bottom-width: 1px !important;
+}
+
+.copy-to-clipboard-button.copied {
+    background-color: #28a745 !important;
+    border-bottom-color: #1e7e34 !important;
+    border-right-color: #228b3c !important;
+    border-left-color: #228b3c !important;
+}
+
+.command-line-prompt {
+    border-right: none !important;
+    margin-right: none !important;
+}
