@@ -160,8 +160,8 @@
   </style>
   <div th:if="${globalInfo.allowRegistration}" class="signup-notice-content">
     <div>
-      <th:block th:text="#{signupNotice.description}"></th:block>
-      <a th:href="@{/signup}" th:text="#{signupNotice.link}"></a>
+      <th:block th:text="还没有注册？"></th:block>
+      <a th:href="@{/signup}" th:text="立即注册！"></a>
     </div>
   </div>
 </div>
@@ -182,8 +182,8 @@
   </style>
   <div th:if="${globalInfo.allowRegistration}" class="login-notice-content">
     <div>
-      <th:block th:text="#{loginNotice.description}"></th:block>
-      <a th:href="@{/login}" th:text="#{loginNotice.link}"></a>
+      <th:block th:text="已有账号？"></th:block>
+      <a th:href="@{/login}" th:text="立即登录！"></a>
     </div>
   </div>
 </div>

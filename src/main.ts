@@ -5,6 +5,9 @@ import "../templates/assets/css/style.css";
 import tocbot from "tocbot";
 import Alpine from "alpinejs";
 
+window.Alpine = Alpine;
+Alpine.start();
+
 function initializeTocbot() {
   tocbot.init({
     tocSelector: ".toc",
@@ -21,6 +24,3 @@ function initializeTocbot() {
 }
 
 document.addEventListener("DOMContentLoaded", initializeTocbot);
-
-window.Alpine = Alpine;
-Alpine.start();

@@ -1,7 +1,8 @@
 <aside
-  class="hidden h-full sm:block"
+  class="hidden sm:block"
   th:with="widgets = ${theme.config.sidebar.widgets}"
   th:fragment="sidebar(display)"
+  th:classappend="${#lists.contains(widgets.![value], 'summary')} and ${display} ? 'h-full' : 'sticky top-[1.25rem] z-10 h-fit'"
 >
   <!-- 站点信息 -->
   <div
@@ -54,7 +55,7 @@
         <th:block th:each="social_media : ${social_medias}">
           <a
             class="flex cursor-pointer items-center justify-center rounded p-1 hover:bg-gray-100 dark:hover:bg-slate-700"
-            th:href="${social_media.url}"
+            th:href="${#strings.contains(social_media.url, '@')} ? 'mailto:' + ${social_media.url} : ${social_media.url}"
           >
             <span th:classappend="${social_media.icon}" class="!h-6 !w-6 text-gray-600 dark:text-slate-400"></span>
           </a>
@@ -66,7 +67,7 @@
   <!-- 目录 -->
   <div
     th:if="${#lists.contains(widgets.![value], 'summary')} and ${display}"
-    class="sidebar-section sticky top-[1.25rem] mb-10 hidden h-fit translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:block"
+    class="sidebar-section sticky top-[1.25rem] z-10 mb-10 hidden h-fit translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:block"
   >
     <h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">目录</h3>
     <div class="toc"></div>

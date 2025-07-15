@@ -15,8 +15,7 @@
               class="mb-4 cursor-pointer rounded-lg border border-border-color-dark p-4 shadow-sm transition hover:bg-gray-100 dark:hover:bg-slate-700"
               th:onclick=" 'location.href=\'' + @{${post.status.permalink}} + '\'' "
             >
-              <span th:text="${post.spec.title}" class="pointer-events-none flex-grow text-blue-600 hover:underline">
-              </span>
+              <span th:text="${post.spec.title}" class="pointer-events-none flex-grow hover:underline"> </span>
             </div>
           </div>
         </div>

@@ -29,15 +29,9 @@ function changeIcon(mode) {
     if (mode === "dark") {
         themeIcon.textContent = '☀️';
         themeIconMobile.textContent = '☀️';
-
-        btn.classList.remove('bg-black', 'text-white');
-        btn.classList.add('bg-white', 'text-black');
     } else {
         themeIcon.textContent = '🌙';
         themeIconMobile.textContent = '🌙✨';
-
-        btn.classList.remove('bg-white', 'text-black');
-        btn.classList.add('bg-black', 'text-white');
     }
 }
 

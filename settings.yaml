@@ -75,15 +75,15 @@ spec:
               label: 图标
               options:
                 - label: 电子邮箱
-                  value: icon-[hugeicons--mail-02]
+                  value: hugeicons--mail-02
                 - label: Telegram
-                  value: icon-[hugeicons--telegram]
+                  value: hugeicons--telegram
                 - label: Discord
-                  value: icon-[qlementine-icons--discord-16]
+                  value: qlementine-icons--discord-16
                 - label: GitHub
-                  value: icon-[hugeicons--github]
+                  value: hugeicons--github
                 - label: RSS
-                  value: icon-[lucide--rss]
+                  value: lucide--rss
             - $formkit: text
               name: url
               label: 链接

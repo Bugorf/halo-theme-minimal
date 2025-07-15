@@ -82,7 +82,7 @@
               <th:block th:each="social_media : ${social_medias}">
                 <a
                   class="flex cursor-pointer items-center justify-center rounded p-1 hover:bg-gray-100 dark:hover:bg-slate-700"
-                  th:href="${social_media.url}"
+                  th:href="${#strings.contains(social_media.url, '@')} ? 'mailto:' + ${social_media.url} : ${social_media.url}"
                 >
                   <span
                     th:classappend="${social_media.icon}"
@@ -97,7 +97,7 @@
         <div class="min-w-0 break-words">
           <th:block th:replace="~{::content}"></th:block>
         </div>
-        <div>
+        <div class="h-full">
           <th:block th:replace="~{modules/sidebar :: sidebar(display=${isPost || isSinglePage})}"></th:block>
         </div>
       </div>
@@ -121,7 +121,7 @@
     <!-- 小屏幕黑夜模式按钮 -->
     <button
       id="themeToggleBtn"
-      class="fixed bottom-5 right-5 h-12 w-12 rounded-full bg-black sm:hidden"
+      class="fixed bottom-5 right-5 h-12 w-12 rounded-full bg-black dark:bg-white sm:hidden"
       onclick="toggleTheme()"
     >
       <span id="theme-icon"></span>
