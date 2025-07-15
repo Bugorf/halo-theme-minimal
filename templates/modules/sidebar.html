@@ -1,0 +1,110 @@
+<aside
+  class="hidden h-full sm:block"
+  th:with="widgets = ${theme.config.sidebar.widgets}"
+  th:fragment="sidebar(display)"
+>
+  <!-- 站点信息 -->
+  <div
+    class="sidebar-section mb-10 translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0"
+  >
+    <div class="text-center">
+      <div
+        class="mx-auto mb-4 flex w-24 items-center justify-center rounded-full bg-border-color text-4xl text-text-lighter"
+      >
+        <img
+          th:src="${not #strings.isEmpty(theme.config.info.profile.logo) ? theme.config.info.profile.logo : '/themes/halo-theme-minimal/assets/images/default_avatar.jpeg'}"
+          th:alt="${site.title}"
+          width="96"
+          height="96"
+          class="size-full rounded-full object-cover"
+        />
+      </div>
+      <div
+        class="mb-2 text-base font-medium text-text-color"
+        th:text="${theme.config.info.profileName} ?: ${site.title}"
+      ></div>
+      <div
+        class="mb-4 text-xs leading-tight text-text-lighter"
+        th:text="${theme.config.info.bio} ?: 'less is more'"
+      ></div>
+      <div class="mt-8 flex w-full justify-around gap-4">
+        <a href="/archives">
+          <div class="flex flex-1 flex-col items-center">
+            <span class="text-xl font-medium tabular-nums text-text-color" th:text="${stats.post}"></span>
+            <span class="text-xs font-light text-text-lightest" th:text="文章"></span>
+          </div>
+        </a>
+
+        <a href="/about">
+          <div class="flex flex-1 flex-col items-center" th:with="posts=${postFinder.listAll()}">
+            <!-- 显示全站文章总字数 -->
+            <span
+              class="text-xl font-medium tabular-nums text-text-color"
+              th:text="${#numbers.formatDecimal(T(java.lang.Math).floor(#aggregates.sum(posts.![#root.postFinder.content(metadata.name).content.replaceAll('<[^>]*>', '').replaceAll('[\\p{Punct}\\s]+', '').length()]) / 10.0) / 100.0, 1, 2)} + 'K'"
+            ></span>
+            <span class="text-xs font-light text-text-lightest" th:text="字数统计"></span>
+          </div>
+        </a>
+      </div>
+
+      <div
+        th:with="social_medias = ${theme.config.sidebar.social_media}"
+        class="mt-4 flex flex-wrap items-center justify-center gap-2"
+      >
+        <th:block th:each="social_media : ${social_medias}">
+          <a
+            class="flex cursor-pointer items-center justify-center rounded p-1 hover:bg-gray-100 dark:hover:bg-slate-700"
+            th:href="${social_media.url}"
+          >
+            <span th:classappend="${social_media.icon}" class="!h-6 !w-6 text-gray-600 dark:text-slate-400"></span>
+          </a>
+        </th:block>
+      </div>
+    </div>
+  </div>
+
+  <!-- 目录 -->
+  <div
+    th:if="${#lists.contains(widgets.![value], 'summary')} and ${display}"
+    class="sidebar-section sticky top-[1.25rem] mb-10 hidden h-fit translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:block"
+  >
+    <h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">目录</h3>
+    <div class="toc"></div>
+  </div>
+
+  <!-- 文章分类 -->
+  <div
+    th:if="${#lists.contains(widgets.![value], 'categories')}"
+    class="sidebar-section mb-10 hidden translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:block"
+  >
+    <h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">文章分类</h3>
+    <ul class="list-none" th:with="categories = ${categoryFinder.listAll()}">
+      <li class="mb-2" th:each="category : ${categories}">
+        <a
+          th:href="@{${category.status.permalink}}"
+          class="flex items-center justify-between text-sm text-text-light no-underline transition-colors duration-300 hover:text-text-color"
+        >
+          <span class="max-w-[80%] truncate" th:text="${category.spec.displayName}"></span>
+          <span class="ml-2 shrink-0 text-xs text-text-lightest" th:text="${category.postCount}"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 热门标签 -->
+  <div
+    th:if="${#lists.contains(widgets.![value], 'tags')}"
+    class="sidebar-section mb-10 hidden translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:block"
+  >
+    <h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">热门标签</h3>
+    <ul class="flex list-none flex-wrap gap-2" th:with="tags = ${tagFinder.listAll()}">
+      <li th:each="tag : ${tags}">
+        <a
+          class="rounded-full border border-border-color-dark bg-bg-color px-3 py-1 text-xs text-text-light no-underline transition-colors duration-300 hover:bg-hover-bg"
+          th:text="${tag.spec.displayName}"
+          th:href="${tag.status.permalink}"
+        ></a>
+      </li>
+    </ul>
+  </div>
+</aside>

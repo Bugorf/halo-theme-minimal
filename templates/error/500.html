@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>500</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 0.6s ease-out;
+      }
+    </style>
+  </head>
+  <body class="flex min-h-screen flex-col items-center justify-center bg-gray-50 font-sans text-gray-700">
+    <div id="page500" class="animate-fadeIn hidden max-w-2xl px-5 py-10 text-center">
+      <div class="mb-0 text-8xl font-light tracking-tight text-red-500 md:text-9xl">500</div>
+      <h1 class="mb-4 mt-0 text-xl font-normal text-gray-600 md:text-2xl">服务器内部错误</h1>
+      <div class="w-15 mx-auto my-6 h-px bg-gray-300"></div>
+      <p class="mx-auto mb-8 max-w-md text-base leading-relaxed text-gray-500">服务器遇到了意外情况，请联系管理员。</p>
+      <a
+        href="javascript:location.reload()"
+        class="inline-block rounded bg-gray-600 px-6 py-3 text-sm font-normal text-white transition-all duration-200 hover:-translate-y-px hover:bg-gray-700 hover:shadow-lg"
+      >
+        刷新页面
+      </a>
+      <div class="w-15 mx-auto my-6 h-px bg-gray-300"></div>
+      <a href="/" class="text-sm text-gray-500 transition-colors duration-200 hover:text-gray-700"> ← 返回首页 </a>
+    </div>
+  </body>
+</html>

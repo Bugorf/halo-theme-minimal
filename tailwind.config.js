@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const { addDynamicIconSelectors } = require("@iconify/tailwind");
 module.exports = {
-  content: ["./templates/**/*.html", "./src/main.ts", "./templates/assets/js/main.js"],
+  content: ["./templates/**/*.html", "./src/main.ts"],
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
@@ -17,6 +17,8 @@ module.exports = {
         'hover-bg': 'var(--hover-bg)',
         'bg-tag': 'var(--bg-tag)',
         'shadow': 'var(--shadow)',
+        'pagination-link-bg': 'var(--pagination-link-bg)',
+        '--pagination-link-border': 'var(--pagination-link-border)',
         'accent-color':'var(--accent-color)',
         'success-color':'var(--success-color)',
         'error-color':'var(--error-color)',

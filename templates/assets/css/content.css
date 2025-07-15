@@ -64,7 +64,6 @@ blockquote {
 
 /* 列表 */
 ul, ol {
-    margin: 1em 0;
     padding-left: 2em;
 }
 
@@ -88,6 +87,11 @@ ul li::marker {
 ol li::marker {
     color: var(--accent-color);
     font-weight: 600;
+}
+
+.is-active-li {
+    background-color: var(--hover-bg);
+    border-radius: 5px;
 }
 
 /* 提示条 */

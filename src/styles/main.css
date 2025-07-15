@@ -18,11 +18,39 @@ ul {
   --bg-tag: #f0f0f0;
   --hover-bg: #d0d0d0;
   --shadow: rgba(0, 0, 0, 0.1);
+  --pagination-link-bg: #f5f5f5;
+  --pagination-link-border: #ddd;
+
   --accent-color: #4a90e2;
   --success-color: #52c41a;
   --warning-color: #faad14;
   --error-color: #f5222d;
   --info-color: #1890ff;
+
+  /* 评论插件配色 */
+  --halo-comment-widget-base-color: var(--text-color);
+  --halo-comment-widget-base-info-color: var(--text-light);
+
+  --halo-comment-widget-component-form-input-bg-color: var(--bg-color);
+  --halo-comment-widget-component-form-input-color: var(--text-light);
+  --halo-comment-widget-component-form-input-box-shadow-focus: var(--shadow);
+  --halo-comment-widget-component-form-input-border-color: var(--border-color-dark);
+  --halo-comment-widget-component-form-input-border-color-focus: var(--border-color-dark);
+
+  --halo-comment-widget-component-form-button-login-bg-color: var(--bg-color);
+  --halo-comment-widget-component-form-button-login-bg-color-hover: var(--hover-bg);
+  --halo-comment-widget-component-form-button-login-border-color: var(--border-color);
+
+  --halo-comment-widget-component-form-button-submit-bg-color: var(--bg-color);
+  --halo-comment-widget-component-form-button-submit-color: var(--text-light);
+  --halo-comment-widget-component-form-button-submit-border-color-hover: var(--border-color-dark);
+
+  --halo-comment-widget-component-form-button-emoji-color: var(--bg-color);
+
+  --halo-comment-widget-component-pagination-button-bg-color-hover: var(--hover-bg);
+  --halo-comment-widget-component-pagination-button-bg-color-active: var(--border-color);
+
+  /* TODO: 搜索框配色 */
 }
 
 [data-theme="dark"] {
@@ -37,11 +65,41 @@ ul {
   --hover-bg: #3a3a3a;
   --bg-tag: #333333;
   --shadow: rgba(0, 0, 0, 0.3);
+  --pagination-link-bg: #282828;
+  --pagination-link-border: #444;
+
   --accent-color: #5aa3f0;
   --success-color: #73d13d;
   --warning-color: #ffc53d;
   --error-color: #ff4d4f;
   --info-color: #40a9ff;
+
+
+  /* 评论插件配色 */
+  --halo-comment-widget-base-color: var(--text-color);
+  --halo-comment-widget-base-info-color: var(--text-light);
+
+  --halo-comment-widget-component-form-input-bg-color: var(--bg-color);
+  --halo-comment-widget-component-form-input-color: var(--text-light);
+  --halo-comment-widget-component-form-input-box-shadow-focus: var(--shadow);
+  --halo-comment-widget-component-form-input-border-color: var(--border-color-dark);
+  --halo-comment-widget-component-form-input-border-color-focus: var(--border-color-dark);
+
+  --halo-comment-widget-component-form-button-login-bg-color: var(--bg-color);
+  --halo-comment-widget-component-form-button-login-bg-color-hover: var(--hover-bg);
+
+  --halo-comment-widget-component-form-button-submit-bg-color: var(--bg-color);
+  --halo-comment-widget-component-form-button-submit-color: var(--text-light);
+  --halo-comment-widget-component-form-button-submit-border-color: var(--border-color);
+  --halo-comment-widget-component-form-button-submit-border-color-hover: var(--border-color-dark);
+
+  --halo-comment-widget-component-form-button-emoji-color: var(--bg-color);
+
+  --halo-comment-widget-component-pagination-button-bg-color-hover: var(--hover-bg);
+  --halo-comment-widget-component-pagination-button-bg-color-active: var(--border-color);
+
+  /* TODO: 搜索框配色 */
+  
 }
 
 * {

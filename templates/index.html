@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"
-    th:replace="~{modules/layout :: layout(home=true)}">
-
-    <th:block th:fragment="content">
-        <th:block th:replace="~{modules/postcard}"></th:block>
-    </th:block>
-
+<html
+  lang="zh-CN"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{modules/layout :: layout(isHome=true, isPost=false, isSinglePage=false, isArch=false)}"
+>
+  <th:block th:fragment="content">
+    <th:block th:replace="~{modules/postcard}"></th:block>
+  </th:block>
 </html>

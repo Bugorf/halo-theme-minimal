@@ -1,3 +1,45 @@
-<!-- 底部导航栏 -->
- 
-<div class="pagination" id="pagination"></div>
+<div th:fragment="pagination(isArch, isHome)">
+  <div th:if="${isArch}">
+    <div th:if="${archives.hasPrevious() or archives.hasNext()}" class="pagination" id="pagination">
+      <a
+        class="pagination-link"
+        th:classappend="${archives.first} ?'disabled' : ''"
+        th:href="${!archives.first} ? @{${archives.prevUrl}} : null"
+      >
+        <span>上一页</span>
+      </a>
+      <div class="flex gap-4">
+        <a class="pagination-link current" th:text="${archives.page} + ' / ' + ${archives.totalPages}"></a>
+      </div>
+      <a
+        class="pagination-link"
+        th:classappend="${archives.last} ?'disabled' : ''"
+        th:href="${!archives.last} ? @{${archives.nextUrl}} : null"
+      >
+        <span>下一页</span>
+      </a>
+    </div>
+  </div>
+
+  <div th:if="${isHome}">
+    <div th:if="${posts.hasPrevious() or posts.hasNext()}" class="pagination" id="pagination">
+      <a
+        class="pagination-link"
+        th:classappend="${posts.first} ?'disabled' : ''"
+        th:href="${!posts.first} ? @{${posts.prevUrl}} : null"
+      >
+        <span>上一页</span>
+      </a>
+      <div class="flex gap-4">
+        <a class="pagination-link current" th:text="${posts.page} + ' / ' + ${posts.totalPages}"></a>
+      </div>
+      <a
+        class="pagination-link"
+        th:classappend="${posts.last} ?'disabled' : ''"
+        th:href="${!posts.last} ? @{${posts.nextUrl}} : null"
+      >
+        <span>下一页</span>
+      </a>
+    </div>
+  </div>
+</div>

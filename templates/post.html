@@ -1,38 +1,48 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:replace="~{modules/layout :: layout(home=false)}">
+<html
+  lang="zh-CN"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{modules/layout :: layout(isHome=false, isPost=true, isSinglePage=false, isArch=false)}"
+>
+  <th:block th:fragment="content">
+    <h2
+      class="border-b-4 border-accent-color pb-2 text-center text-3xl text-text-color"
+      th:text="${post.spec.title}"
+    ></h2>
 
-<th:block th:fragment="content">
-    <h2 class="text-3xl text-text-color pb-2 border-b-4 border-accent-color text-center" th:text="${post.spec.title}">
-    </h2>
-
-    <div th:utext="${post.content.content}"></div>
+    <div
+      id="content"
+      class="translate-y-5 animate-[fadeInUp_0.6s_ease_forwards]"
+      th:utext="${post.content.content}"
+    ></div>
 
     <!-- 版权声明 -->
-    <div class="mt-10 p-4 border border-border-color rounded-xl text-sm text-text-lighter bg-bg-color/50">
-        <p class="mb-1">
-            ✍️ 作者：<span th:text="${theme.config.info.profileName} ?: ${site.title}"></span>
-        </p>
-        <p class="mb-1">
-            📄 本文采用
-            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-                class="text-accent-color underline hover:text-accent-color/80" target="_blank"
-                rel="noopener noreferrer">
-                CC 4.0协议
-            </a>
-            发布, 您可在许可范围内使用与修改。
-        </p>
+    <div
+      class="bg-bg-color/50 mt-10 translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-xl border border-border-color p-4 text-sm text-text-lighter"
+    >
+      <p class="mb-1">✍️ 作者：<span th:text="${theme.config.info.profileName} ?: ${site.title}"></span></p>
+      <p class="mb-1">
+        📄 本文采用
+        <a
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+          class="hover:text-accent-color/80 text-accent-color underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CC 4.0协议
+        </a>
+        发布, 您可在许可范围内使用与修改。
+      </p>
 
-        <p class="break-words" th:with="url = ${site.url} + ${post.status.permalink}">
-            🔗 原文链接：
-            <th:block th:with="tempUrl = ${url.replaceAll('//+', '/')}">
-                <a class="text-accent-color underline hover:text-accent-color/80"
-                    th:text="${tempUrl.replaceFirst('^(https?):/+', '$1://')}"></a>
-            </th:block>
-        </p>
+      <p class="break-words" th:with="url = ${site.url} + ${post.status.permalink}">
+        🔗 原文链接：
+        <th:block th:with="tempUrl = ${url.replaceAll('//+', '/')}">
+          <a
+            class="hover:text-accent-color/80 text-accent-color underline"
+            th:text="${tempUrl.replaceFirst('^(https?):/+', '$1://')}"
+          ></a>
+        </th:block>
+      </p>
     </div>
-
-
-</th:block>
-
-
+  </th:block>
 </html>

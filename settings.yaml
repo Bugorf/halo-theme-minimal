@@ -10,11 +10,11 @@ spec:
         - $formkit: text
           name: siteTitle
           label: 网站标题
-          value: 
+          value:
         - $formkit: text
           name: siteSubtitle
           label: 网站副标题
-          value: 
+          value:
         - $formkit: group
           name: favicon
           value:
@@ -29,11 +29,62 @@ spec:
             - $formkit: attachment
               name: logo
               label: 头像
+        - $formkit: group
+          name: login
+          value:
+          children:
+            - $formkit: attachment
+              name: loginImage
+              label: 登录页面logo
         - $formkit: text
           name: profileName
           label: 用户名
-          value: 
+          value:
         - $formkit: text
           name: bio
           label: 个性签名
           value:
+    - group: sidebar
+      label: 侧边栏
+      formSchema:
+        - $formkit: repeater
+          name: widgets
+          label: 小部件
+          value:
+            - value: summary
+            - value: categories
+            - value: tags
+          children:
+            - $formkit: select
+              name: value
+              label: 组件
+              options:
+                - label: 文章目录
+                  value: summary
+                - label: 文章分类
+                  value: categories
+                - label: 文章标签
+                  value: tags
+        - $formkit: repeater
+          name: social_media
+          label: 社交媒体
+          value: []
+          children:
+            - $formkit: select
+              name: icon
+              label: 图标
+              options:
+                - label: 电子邮箱
+                  value: icon-[hugeicons--mail-02]
+                - label: Telegram
+                  value: icon-[hugeicons--telegram]
+                - label: Discord
+                  value: icon-[qlementine-icons--discord-16]
+                - label: GitHub
+                  value: icon-[hugeicons--github]
+                - label: RSS
+                  value: icon-[lucide--rss]
+            - $formkit: text
+              name: url
+              label: 链接
+              validation: "required"

@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:replace="~{modules/layout :: layout(home=false)}">
+<html
+  lang="zh-CN"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{modules/layout :: layout(isHome=false, isPost=false, isSinglePage=true, isArch=false)}"
+>
+  <th:block th:fragment="content">
+    <h2
+      class="border-b-4 border-accent-color pb-2 text-center text-3xl text-text-color"
+      th:text="${singlePage.spec.title}"
+    ></h2>
 
-    <th:block th:fragment="content">
-        <h2 class="text-3xl text-text-color pb-2 border-b-4 border-accent-color text-center"
-            th:text="${singlePage.spec.title}"></h2>
-
-        <div class="translate-y-5 animate-[fadeInUp_0.6s_ease_forwards]" th:utext="${singlePage.content.content}"> </div>
-    </th:block>
-
+    <div
+      class="translate-y-5 animate-[fadeInUp_0.6s_ease_forwards]"
+      id="content"
+      th:utext="${singlePage.content.content}"
+    ></div>
+  </th:block>
 </html>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:replace="~{modules/layout :: layout(home=false)}">
-
+<html
+  lang="zh-CN"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{modules/layout :: layout(isHome=false, isPost=false, isSinglePage=false, isArch=false)}"
+>
   <th:block th:fragment="content">
     <ul th:fragment="next (categories)" class="translate-y-5 animate-[fadeInUp_0.6s_ease_forwards]">
       <li th:fragment="single (categories)" th:each="category : ${categories}">
@@ -13,5 +16,4 @@
       </li>
     </ul>
   </th:block>
-
 </html>

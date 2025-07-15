@@ -1,14 +1,22 @@
-<footer class="text-center mt-20 pt-10 border-t border-border-color text-text-lightest text-sm"
-    th:with="menu = ${menuFinder.getPrimary()}">
-    <div class="mb-5">
-        <a th:each="menuItem : ${menu.menuItems}" th:href="@{${menuItem.status.href}}"
-            th:text="${menuItem.status.displayName}"
-            class="text-text-lightest no-underline mx-3 text-base transition-colors duration-300 hover:text-text-lighter">
-        </a>
-    </div>
-    <div>©2025 All rights reserved</div>
-    <a th:if="${!#strings.isEmpty(theme.config.info.bio)}" href="/"
-        th:text="${theme.config.info.siteTitle + ' — ' + theme.config.info.bio}">
+<footer
+  class="mt-20 border-t border-border-color pt-10 text-center text-sm text-text-lightest"
+  th:with="menu = ${menuFinder.getPrimary()}"
+>
+  <div class="mb-5">
+    <a
+      th:each="menuItem : ${menu.menuItems}"
+      th:href="@{${menuItem.status.href}}"
+      th:text="${menuItem.status.displayName}"
+      class="mx-3 text-base text-text-lightest no-underline transition-colors duration-300 hover:text-text-lighter"
+    >
     </a>
-
+  </div>
+  <div>©2025 All rights reserved</div>
+  <a
+    th:if="${!#strings.isEmpty(theme.config.info.bio)}"
+    href="/"
+    th:text="${theme.config.info.siteTitle + ' — ' + theme.config.info.bio}"
+  >
+  </a>
+  <halo:footer />
 </footer>
