@@ -36,7 +36,7 @@
 
       <p class="break-words" th:with="url = ${site.url} + ${post.status.permalink}">
         🔗 原文链接：
-        <th:block th:with="tempUrl = ${url.replaceAll('//+', '/')}">
+        <th:block th:with="tempUrl=${url.replaceAll('//+', '/').replaceAll('^http:', 'https:')}">
           <a
             class="hover:text-accent-color/80 text-accent-color underline"
             th:text="${tempUrl.replaceFirst('^(https?):/+', '$1://')}"
