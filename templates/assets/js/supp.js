@@ -1,8 +1,7 @@
 const themeIcon = document.querySelector('.theme-icon');
 const themeIconMobile = document.getElementById("theme-icon");
-const btn = document.getElementById('themeToggleBtn');
 
-function toggleTheme() {
+export function toggleTheme() {
     const htmlElement = document.documentElement;
     const isDark = htmlElement.getAttribute('data-theme') === 'dark';
 
@@ -21,14 +20,7 @@ function toggleTheme() {
     }
 }
 
-// 页面加载时根据 localStorage 设置主题
-document.addEventListener('DOMContentLoaded', () => {
-    const theme = document.documentElement.getAttribute('data-theme');
-    changeIcon(theme);
-    applyPrismTheme();
-});
-
-function changeIcon(mode) {
+export function changeIcon(mode) {
     if (mode === "dark") {
         themeIcon.textContent = '☀️';
         themeIconMobile.textContent = '☀️';
@@ -38,18 +30,8 @@ function changeIcon(mode) {
     }
 }
 
-// 点击外部时关闭菜单
-document.addEventListener('click', function (event) {
-    const headerMenu = document.querySelector('.header-menu');
-    const menuToggle = document.querySelector('.menu-toggle');
-
-    if (headerMenu.classList.contains('expanded') && !headerMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-        toggleMenu();
-    }
-});
-
 // 菜单切换
-function toggleMenu() {
+export function toggleMenu() {
     const headerMenu = document.querySelector('.header-menu');
     const controlButtons = document.querySelector('.control-buttons');
 
@@ -66,7 +48,7 @@ function toggleMenu() {
 }
 
 // 菜单栏显示
-function openMenu() {
+export function openMenu() {
     var menu = document.getElementById("menu");
     var burger = document.getElementById("burger");
 
@@ -80,13 +62,13 @@ function openMenu() {
 }
 
 // 折叠块切换功能
-function toggleCollapse(header) {
+export function toggleCollapse(header) {
     const collapse = header.parentElement;
     collapse.classList.toggle('open');
 }
 
 // 代码高亮
-function applyPrismTheme() {
+export function applyPrismTheme() {
     const existing = document.getElementById('prism-theme');
     const href = localStorage.getItem("theme") === 'dark'
         ? 'https://cdn.jsdelivr.net/npm/prismjs/themes/prism-okaidia.css'
@@ -122,7 +104,7 @@ function parseLineNumbers(lineStr) {
     return lines;
 }
 
-function applyHighlight() {
+export function applyHighlight() {
     const preElements = document.querySelectorAll('pre[m-info], pre[m-error], pre[m-warning], pre[m-success]');
 
     preElements.forEach(pre => {
@@ -173,17 +155,3 @@ function applyHighlight() {
         });
     });
 }
-
-// 防止高亮插件动态刷新让自定义样式失效
-const observer = new MutationObserver(() => {
-    applyHighlight();
-});
-
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
-
-window.addEventListener('load', () => {
-    applyHighlight();
-});

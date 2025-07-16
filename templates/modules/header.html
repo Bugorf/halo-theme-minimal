@@ -12,8 +12,7 @@
       <div class="relative mt-6 flex items-center sm:mt-0">
         <div class="control-buttons flex gap-2 transition-opacity duration-300">
           <button
-            class="flex min-w-11 cursor-pointer items-center justify-center rounded-full border border-border-color-dark px-3 py-2 text-sm text-text-color transition-all duration-300 hover:bg-hover-bg"
-            onclick="toggleTheme()"
+            class="themeToggleBtn flex min-w-11 cursor-pointer items-center justify-center rounded-full border border-border-color-dark px-3 py-2 text-sm text-text-color transition-all duration-300 hover:bg-hover-bg"
           >
             <span class="theme-icon"></span>
           </button>
@@ -24,8 +23,8 @@
             <a href="javascript:SearchWidget.open()">🔍</a>
           </button>
           <button
+            id="toggleMenu"
             class="menu-toggle flex min-w-11 cursor-pointer items-center justify-center rounded-full border border-border-color-dark px-3 py-2 text-sm text-text-color transition-all duration-300 hover:bg-hover-bg"
-            onclick="toggleMenu()"
           >
             🍔
           </button>
@@ -47,7 +46,7 @@
   <div class="mb-8 flex flex-col rounded-xl bg-card-bg shadow-sm transition-all dark:bg-card-bg sm:hidden">
     <div class="flex h-16 items-center justify-between px-4 py-3">
       <!-- 左侧菜单按钮 -->
-      <div class="cursor-pointer text-gray-600 dark:text-slate-100" onclick="openMenu()">
+      <div id="menuDiv" class="cursor-pointer text-gray-600 dark:text-slate-100">
         <div id="burger" class="text-lg hover:text-blue-600">🍔</div>
       </div>
 

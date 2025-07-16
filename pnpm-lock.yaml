@@ -7,9 +7,6 @@ settings:
 importers:
   .:
     dependencies:
-      alpinejs:
-        specifier: ^3.14.9
-        version: 3.14.9
       prismjs:
         specifier: ^1.30.0
         version: 1.30.0
@@ -29,9 +26,6 @@ importers:
       "@tailwindcss/typography":
         specifier: ^0.5.16
         version: 0.5.16(tailwindcss@3.4.17)
-      "@types/alpinejs":
-        specifier: ^3.13.11
-        version: 3.13.11
       "@types/node":
         specifier: ^18.19.119
         version: 18.19.119
@@ -471,10 +465,6 @@ packages:
     peerDependencies:
       tailwindcss: ">=3.0.0 || insiders || >=4.0.0-alpha.20 || >=4.0.0-beta.1"
 
-  "@types/alpinejs@3.13.11":
-    resolution:
-      { integrity: sha512-3KhGkDixCPiLdL3Z/ok1GxHwLxEWqQOKJccgaQL01wc0EVM2tCTaqlC3NIedmxAXkVzt/V6VTM8qPgnOHKJ1MA== }
-
   "@types/estree@1.0.8":
     resolution:
       { integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w== }
@@ -565,14 +555,6 @@ packages:
     resolution:
       { integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g== }
 
-  "@vue/reactivity@3.1.5":
-    resolution:
-      { integrity: sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg== }
-
-  "@vue/shared@3.1.5":
-    resolution:
-      { integrity: sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA== }
-
   abort-controller@3.0.0:
     resolution:
       { integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg== }
@@ -593,10 +575,6 @@ packages:
   ajv@6.12.6:
     resolution:
       { integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g== }
-
-  alpinejs@3.14.9:
-    resolution:
-      { integrity: sha512-gqSOhTEyryU9FhviNqiHBHzgjkvtukq9tevew29fTj+ofZtfsYriw4zPirHHOAy9bw8QoL3WGhyk7QqCh5AYlw== }
 
   ansi-escapes@7.0.0:
     resolution:
@@ -849,9 +827,9 @@ packages:
     resolution:
       { integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA== }
 
-  electron-to-chromium@1.5.183:
+  electron-to-chromium@1.5.185:
     resolution:
-      { integrity: sha512-vCrDBYjQCAEefWGjlK3EpoSKfKbT10pR4XXPdn65q7snuNOZnthoVpBfZPykmDapOKfoD+MMIPG8ZjKyyc9oHA== }
+      { integrity: sha512-dYOZfUk57hSMPePoIQ1fZWl1Fkj+OshhEVuPacNKWzC1efe56OsHY3l/jCfiAgIICOU3VgOIdoq7ahg7r7n6MQ== }
 
   emoji-regex@10.4.0:
     resolution:
@@ -2198,8 +2176,6 @@ snapshots:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.17
 
-  "@types/alpinejs@3.13.11": {}
-
   "@types/estree@1.0.8": {}
 
   "@types/json-schema@7.0.15": {}
@@ -2298,12 +2274,6 @@ snapshots:
 
   "@ungap/structured-clone@1.3.0": {}
 
-  "@vue/reactivity@3.1.5":
-    dependencies:
-      "@vue/shared": 3.1.5
-
-  "@vue/shared@3.1.5": {}
-
   abort-controller@3.0.0:
     dependencies:
       event-target-shim: 5.0.1
@@ -2320,10 +2290,6 @@ snapshots:
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
-
-  alpinejs@3.14.9:
-    dependencies:
-      "@vue/reactivity": 3.1.5
 
   ansi-escapes@7.0.0:
     dependencies:
@@ -2411,7 +2377,7 @@ snapshots:
   browserslist@4.25.1:
     dependencies:
       caniuse-lite: 1.0.30001727
-      electron-to-chromium: 1.5.183
+      electron-to-chromium: 1.5.185
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.1)
 
@@ -2515,7 +2481,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  electron-to-chromium@1.5.183: {}
+  electron-to-chromium@1.5.185: {}
 
   emoji-regex@10.4.0: {}
 
