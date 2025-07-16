@@ -1,7 +1,7 @@
 # Minimal
 
 <div align="center">
-<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v0.3.1-blue.svg", alt="github"></a>
+<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v0.3.2-blue.svg", alt="github"></a>
 <a href="https://halo.run"><img src="https://img.shields.io/badge/Halo->=2.20-red.svg", alt="github"></a>
 
 </div>
@@ -14,7 +14,7 @@
 
 部分功能实现参考Halo默认主题 [Earth](https://github.com/halo-dev/theme-earth)，在此由衷表示感谢。
 
-## 效果预览可前往 👉 [𝓜.𝓦𝓱𝓲𝓽𝓮’𝓼 𝓫𝓵𝓸𝓰](https://alloworld.me)
+## 效果预览可前往 👉 [𝓜.𝓦𝓱𝓲𝓽𝓮’𝓼 𝓫𝓵𝓸𝓰](https://www.alloworld.me/archives/components-preview)
 
 # 💪 TODO
 
@@ -36,7 +36,7 @@
 # 😎 使用
 
 <p>
-直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v0.3.1-blue.svg", alt="github"></a>
+直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v0.3.2-blue.svg", alt="github"></a>
 压缩包，后台上传即可。具体安装方式可参考<a href="https://docs.halo.run/user-guide/themes">Halo官方教程</a>
 </p>
 
@@ -95,7 +95,7 @@
 
     ``` html
         <div class="clp">
-        <div class="clp-header" onclick="toggleCollapse(this)">
+        <div class="clp-header">
             <span>标题</span>
             <span class="clp-icon">▼</span>
         </div>

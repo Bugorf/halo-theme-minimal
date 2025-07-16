@@ -22,7 +22,6 @@
       th:href="${theme.config.info.favicon.ico}"
     />
     <link rel="stylesheet" th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}" />
-    <script th:src="@{/assets/dist/main.iife.js?v={version}(version=${theme.spec.version})}"></script>
   </head>
 
   <body
@@ -124,14 +123,9 @@
     </div>
 
     <!-- 小屏幕黑夜模式按钮 -->
-    <button
-      id="themeToggleBtn"
-      class="fixed bottom-5 right-5 h-12 w-12 rounded-full bg-black dark:bg-white sm:hidden"
-      onclick="toggleTheme()"
-    >
+    <button class="themeToggleBtn fixed bottom-5 right-5 h-12 w-12 rounded-full bg-black dark:bg-white sm:hidden">
       <span id="theme-icon"></span>
     </button>
-
-    <script th:src="@{/assets/js/supp.js}" defer></script>
+    <script th:src="@{/assets/dist/main.iife.js?v={version}(version=${theme.spec.version})}"></script>
   </body>
 </html>

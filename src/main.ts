@@ -3,8 +3,17 @@ import "./styles/main.css";
 import "../templates/assets/css/content.css";
 import "../templates/assets/css/style.css";
 import tocbot from "tocbot";
-import Alpine from "alpinejs";
 import Prism from "prismjs";
+
+import {
+  applyHighlight,
+  toggleMenu,
+  openMenu,
+  applyPrismTheme,
+  changeIcon,
+  toggleTheme,
+  toggleCollapse,
+} from "../templates/assets/js/supp.js";
 
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
@@ -25,9 +34,6 @@ import "prismjs/plugins/treeview/prism-treeview.js";
 import "prismjs/plugins/command-line/prism-command-line.css";
 import "prismjs/plugins/command-line/prism-command-line.js";
 
-window.Alpine = Alpine;
-Alpine.start();
-
 function initializeTocbot() {
   tocbot.init({
     tocSelector: ".toc",
@@ -43,11 +49,66 @@ function initializeTocbot() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  initializeTocbot();
-});
-
 // 临时办法：防止高亮区块偏移
 window.addEventListener("load", () => {
   Prism.highlightAll();
+  applyHighlight();
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  initializeTocbot();
+  applyPrismTheme();
+
+  const theme = document.documentElement.getAttribute("data-theme");
+  changeIcon(theme);
+});
+
+// 点击外部时关闭菜单
+document.addEventListener("click", function (event) {
+  const headerMenu = document.querySelector(".header-menu");
+  const menuToggle = document.querySelector(".menu-toggle");
+  if (
+    headerMenu?.classList.contains("expanded") &&
+    !headerMenu.contains(event.target as Node) &&
+    !menuToggle?.contains(event.target as Node)
+  ) {
+    toggleMenu();
+  }
+});
+
+// 防止高亮插件动态刷新让自定义样式失效
+const observer = new MutationObserver(() => {
+  applyHighlight();
+});
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true,
+});
+
+//深色模式按钮点击事件
+const themeToggleBtn = document.querySelectorAll(".themeToggleBtn");
+themeToggleBtn?.forEach((e) => {
+  e.addEventListener("click", function () {
+    toggleTheme();
+  });
+});
+
+//菜单点击事件
+const menuDiv = document.getElementById("menuDiv");
+const toggleM = document.getElementById("toggleMenu");
+
+menuDiv?.addEventListener("click", function () {
+  openMenu();
+});
+toggleM?.addEventListener("click", function () {
+  toggleMenu();
+});
+
+// 折叠块点击事件
+const clp = document.querySelectorAll(".clp-header");
+clp.forEach((e) => {
+  e.addEventListener("click", function () {
+    toggleCollapse(e);
+  });
 });
