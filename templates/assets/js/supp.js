@@ -174,6 +174,16 @@ function applyHighlight() {
     });
 }
 
+// 防止高亮插件动态刷新让自定义样式失效
+const observer = new MutationObserver(() => {
+    applyHighlight();
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
 window.addEventListener('load', () => {
     applyHighlight();
 });
