@@ -88,3 +88,19 @@ spec:
               name: url
               label: 链接
               validation: "required"
+    - group: article_setting
+      label: 文章设置
+      formSchema:
+        - $formkit: checkbox
+          name: outdated_notice
+          id: outdated_notice
+          label: 文章过时提示框
+          value: false
+
+        - $formkit: number
+          if: "$get(outdated_notice).value"
+          name: choiceMonths
+          label: 过时提示阈值（月）
+          placeholder: 文章过时的月数
+          value:
+          validation: "number|required"

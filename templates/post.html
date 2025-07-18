@@ -10,6 +10,35 @@
       th:text="${post.spec.title}"
     ></h2>
 
+    <!-- 过时提醒 -->
+    <div id="outdated_notice" class="alert alert-warning hidden">
+      <div class="alert-content">
+        <h3 style="color: var(--warning-color); font-style: italic">文章过时提示</h3>
+        本文最后更新于
+        <span th:text="${#temporals.format(post.spec.publishTime, 'yyyy年MM月dd日')}" style="color: red"></span>。
+        某些信息可能不再准确或有效。
+      </div>
+    </div>
+    <script th:inline="javascript">
+      const isOutdatedEnabled = /*[[${theme.config.article_setting.outdated_notice}]]*/ false;
+
+      if (isOutdatedEnabled) {
+        const notice = document.getElementById("outdated_notice");
+
+        const publishDateStr = /*[[${#temporals.format(post.spec.publishTime, "yyyy-MM-dd")}]]*/ null;
+        const publishDate = new Date(publishDateStr);
+        const currentDate = new Date();
+
+        const diffInMonths =
+          (currentDate.getFullYear() - publishDate.getFullYear()) * 12 +
+          (currentDate.getMonth() - publishDate.getMonth());
+        const choiceMonths = /*[[${theme.config.article_setting.choiceMonths}]]*/ 6;
+        if (diffInMonths >= choiceMonths) {
+          notice.classList.remove("hidden");
+        }
+      }
+    </script>
+
     <div
       id="content"
       class="translate-y-5 animate-[fadeInUp_0.6s_ease_forwards]"

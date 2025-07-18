@@ -1,7 +1,7 @@
 # Minimal
 
 <div align="center">
-<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v0.3.2-blue.svg", alt="github"></a>
+<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0-blue.svg", alt="github"></a>
 <a href="https://halo.run"><img src="https://img.shields.io/badge/Halo->=2.20-red.svg", alt="github"></a>
 
 </div>
@@ -25,76 +25,78 @@
 - ⏳ 图标适配（iconify）
 - ⏳ UI，交互改良
 - ✅ 文章目录
-- ⬜️ 表格，代码模块
+- ✅ 表格，代码模块
 - ⬜️ 分享,点赞按钮
 - ✅ 版权声明模块
 - ✅ 底部导航栏
 - ✅ 总字数统计
 - ✅ Prism.js自定义代码高亮（详见下文）
-- ⬜️ 过时提醒
+- ✅ 过时提醒
 
 # 😎 使用
 
 <p>
-直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v0.3.2-blue.svg", alt="github"></a>
+直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0-blue.svg", alt="github"></a>
 压缩包，后台上传即可。具体安装方式可参考<a href="https://docs.halo.run/user-guide/themes">Halo官方教程</a>
 </p>
 
-- ## ⚠️ 提示条，折叠块使用注意事项
+- ## ⚠️ 提示条，折叠块，表格使用注意事项
 
     `某些组件效果只能依靠插件实现，但是目前并没有开发插件的想法。光主题就已经让人头大了。也许之后有机会可以尝试...`
 
     目前可通过插入以下格式化代码用于对应组件，效果如下:
     ![提示条](./screenshots/screenshot.png)
 
+    ![表格](./screenshots/table.png)
+
   ### 提示条 - Info
 
     ```html
-        <div class="alert alert-info">
-            <div class="alert-content">
-                <strong>信息提示</strong><br>
-                你收到了一条来自三体星人的回复。
-            </div>
+    <div class="alert alert-info">
+        <div class="alert-content">
+            <strong>信息提示</strong><br>
+            你收到了一条来自三体星人的回复。
         </div>
+    </div>
     ```
 
   ### 提示条 - Success
 
     ```html
-        <div class="alert alert-success">
-            <div class="alert-content">
-                <strong>成功提示</strong><br>
-                操作完成，银行卡进账十亿万元。
-            </div>
+    <div class="alert alert-success">
+        <div class="alert-content">
+            <strong>成功提示</strong><br>
+            操作完成，银行卡进账十亿万元。
         </div>
+    </div>
     ```
 
   ### 提示条 - Warning
 
     ```html
-        <div class="alert alert-warning">
-            <div class="alert-content">
-                <strong>警告提示</strong><br>
-                不要回复，不要回复，不要回复。
-            </div>
+    <div class="alert alert-warning">
+        <div class="alert-content">
+            <strong>警告提示</strong><br>
+            不要回复，不要回复，不要回复。
         </div>
+    </div>
     ```
 
   ### 提示条 - Error
 
     ```html
-        <div class="alert alert-error">
-            <div class="alert-content">
-                <strong>错误提示</strong><br>
-                操作失败，二向箔已被激发。
-            </div>
+    <div class="alert alert-error">
+        <div class="alert-content">
+            <strong>错误提示</strong><br>
+            操作失败，二向箔已被激发。
         </div>
+    </div>
     ```
 
   ### 折叠块
 
     ``` html
-        <div class="clp">
+    <div class="clp">
         <div class="clp-header">
             <span>标题</span>
             <span class="clp-icon">▼</span>
@@ -104,6 +106,43 @@
                 <p>这里放内容</p>
             </div>
         </div>
+    </div>
+    ```
+
+  ### 表格
+
+    ``` html
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>职位</th>
+                <th>部门</th>
+                <th>状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>小新</td>
+                <td>动感超人代言人</td>
+                <td>春日部防卫队</td>
+                <td><span class="tag tag-success">放学回家中</span></td>
+            </tr>
+            <tr>
+                <td>美伢</td>
+                <td>家庭财政部长</td>
+                <td>野原家</td>
+                <td><span class="tag tag-warning">睡午觉中</span></td>
+            </tr>
+            <tr>
+                <td>广志</td>
+                <td>啤酒鉴赏家</td>
+                <td>双叶商事</td>
+                <td><span class="tag tag-primary">地铁上打瞌睡</span></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     ```
 
@@ -117,7 +156,7 @@
     |---|---|
     |![light](./screenshots/lh-h.png)|![dark](./screenshots/lh.png)|
 
-    👀 颜色可自定义，对应CSS样式位于 assets -> content.css
+    > 👀 颜色可自定义，对应CSS样式位于 assets -> content.css
 
     本主题额外添加了Prism.js三个比较实用的插件，分别是：
   - 高亮插件，支持自定义颜色。

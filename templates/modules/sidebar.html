@@ -32,7 +32,7 @@
         <a href="/archives">
           <div class="flex flex-1 flex-col items-center">
             <span class="text-xl font-medium tabular-nums text-text-color" th:text="${stats.post}"></span>
-            <span class="text-xs font-light text-text-lightest" th:text="文章"></span>
+            <span class="text-xs font-light text-text-light" th:text="文章"></span>
           </div>
         </a>
 
@@ -43,7 +43,7 @@
               class="text-xl font-medium tabular-nums text-text-color"
               th:text="${#numbers.formatDecimal(T(java.lang.Math).floor(#aggregates.sum(posts.![#root.postFinder.content(metadata.name).content.replaceAll('<[^>]*>', '').replaceAll('[\\p{Punct}\\s]+', '').length()]) / 10.0) / 100.0, 1, 2)} + 'K'"
             ></span>
-            <span class="text-xs font-light text-text-lightest" th:text="字数统计"></span>
+            <span class="text-xs font-light text-text-light" th:text="字数统计"></span>
           </div>
         </a>
       </div>
@@ -86,7 +86,7 @@
           class="flex items-center justify-between text-sm text-text-light no-underline transition-colors duration-300 hover:text-text-color"
         >
           <span class="max-w-[80%] truncate" th:text="${category.spec.displayName}"></span>
-          <span class="ml-2 shrink-0 text-xs text-text-lightest" th:text="${category.postCount}"></span>
+          <span class="ml-2 shrink-0 text-xs text-text-lightest" th:text="${category.postCount} ?: 0"></span>
         </a>
       </li>
     </ul>

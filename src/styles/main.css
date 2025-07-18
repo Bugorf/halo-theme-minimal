@@ -2,10 +2,6 @@ body {
   background: #f2f2f2;
 }
 
-ul {
-  list-style: decimal;
-}
-
 :root {
   --bg-color: #fefefe;
   --text-color: #333;
@@ -17,7 +13,7 @@ ul {
   --card-bg: #fafafa;
   --bg-tag: #f0f0f0;
   --hover-bg: #d0d0d0;
-  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.3);
   --pagination-link-bg: #f5f5f5;
   --pagination-link-border: #ddd;
 
@@ -64,7 +60,7 @@ ul {
   --card-bg: #2a2a2a;
   --hover-bg: #3a3a3a;
   --bg-tag: #333333;
-  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow: rgba(0, 0, 0, 0.6);
   --pagination-link-bg: #282828;
   --pagination-link-border: #444;
 
