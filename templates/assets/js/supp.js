@@ -11,14 +11,28 @@ export function toggleTheme() {
         localStorage.setItem('theme', 'light');
         changeIcon("light");
         applyPrismTheme();
+        changeBgIframe(false);
     } else {
         // 切换到夜间模式
         htmlElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
         changeIcon("dark");
         applyPrismTheme();
+        changeBgIframe(true);
     }
 }
+
+function changeBgIframe(isDark) {
+    const iframes = document.getElementsByClassName("iframeCircuit");
+    console.log('ok');
+    Array.from(iframes).forEach((iframe) => {
+        const src = iframe.getAttribute("src");
+        const urlObj = new URL(src, window.location.origin);
+        urlObj.searchParams.set("whiteBackground", (!isDark).toString());
+        iframe.setAttribute("src", urlObj.toString());
+    });
+}
+
 
 export function changeIcon(mode) {
     if (mode === "dark") {

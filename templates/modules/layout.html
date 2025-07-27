@@ -72,7 +72,7 @@
                   <!-- 显示全站文章总字数 -->
                   <span
                     class="text-xl font-medium tabular-nums text-text-color"
-                    th:text="${#numbers.formatDecimal(T(java.lang.Math).floor(#aggregates.sum(p.![#root.postFinder.content(metadata.name).content.replaceAll('<[^>]*>', '').replaceAll('[\\p{Punct}\\s]+', '').length()]) / 10.0) / 100.0, 1, 2)} + 'K'"
+                    th:text="${#numbers.formatDecimal(T(java.lang.Math).floor(#aggregates.sum(p.![#root.postFinder.content(metadata.name).content.replaceAll('<[^>]*>', '').replaceAll('[\\r\\n\\t]+', ' ').replaceAll('\\s{2,}', ' ').replaceAll('\\s+', ' ').replaceAll('[^\u4E00-\u9FFF\w]', '').replaceAll('[\\p{Punct}\\s]+', '').length()]) / 10.0) / 100.0, 1, 2)} + 'K'"
                   ></span>
                   <span class="text-xs font-light text-text-light" th:text="字数统计"></span>
                 </div>

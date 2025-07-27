@@ -39,6 +39,7 @@ module.exports = {
     "prose-slate",
     "prose-zinc",
     "prose-neutral",
-    "prose-stone"
+    "prose-stone",
+    "text-green-500"
   ],
 };
