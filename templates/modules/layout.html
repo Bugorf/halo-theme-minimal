@@ -25,7 +25,8 @@
   </head>
 
   <body
-    class="bg-bg-color font-serif text-base leading-relaxed text-text-color transition-colors duration-300 ease-in-out"
+    th:style="'font-family: ' + ${theme.config.site_style.font}"
+    class="bg-bg-color text-base leading-relaxed text-text-color transition-colors duration-300 ease-in-out"
   >
     <div class="mx-auto px-5 py-10 sm:max-w-[80%]">
       <th:block th:replace="~{modules/header}"></th:block>
@@ -72,7 +73,7 @@
                   <!-- 显示全站文章总字数 -->
                   <span
                     class="text-xl font-medium tabular-nums text-text-color"
-                    th:text="${#numbers.formatDecimal(T(java.lang.Math).floor(#aggregates.sum(p.![#root.postFinder.content(metadata.name).content.replaceAll('<[^>]*>', '').replaceAll('[\\r\\n\\t]+', ' ').replaceAll('\\s{2,}', ' ').replaceAll('\\s+', ' ').replaceAll('[^\u4E00-\u9FFF\w]', '').replaceAll('[\\p{Punct}\\s]+', '').length()]) / 10.0) / 100.0, 1, 2)} + 'K'"
+                    th:text="${#numbers.formatDecimal(T(java.lang.Math).floor(#aggregates.sum(p.![#root.postFinder.content(metadata.name).raw.replaceAll('<[^>]*>', '').replaceAll('[\\r\\n\\t]+', ' ').replaceAll('\\s{2,}', ' ').replaceAll('\\s+', ' ').replaceAll('[^\u4E00-\u9FFF\w]', '').replaceAll('[\\p{Punct}\\s]+', '').length()]) / 10.0) / 100.0, 1, 2)} + 'K'"
                   ></span>
                   <span class="text-xs font-light text-text-light" th:text="字数统计"></span>
                 </div>
@@ -123,8 +124,10 @@
     </div>
 
     <!-- 小屏幕黑夜模式按钮 -->
-    <button class="themeToggleBtn fixed bottom-5 right-5 h-12 w-12 rounded-full bg-black dark:bg-white sm:hidden">
-      <span id="theme-icon"></span>
+    <button
+      class="themeToggleBtn fixed bottom-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl text-white dark:bg-white dark:text-black sm:hidden"
+    >
+      <span id="theme-icon-mobile"></span>
     </button>
     <script th:src="@{/assets/dist/main.iife.js?v={version}(version=${theme.spec.version})}"></script>
   </body>

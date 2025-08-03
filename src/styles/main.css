@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Comic-Sans-MS';
+  src: url('../fonts/Comic-Sans-MS.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '手写体';
+  src: url('../fonts/Handwriting.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: #f2f2f2;
 }
