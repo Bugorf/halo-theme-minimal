@@ -1,5 +1,5 @@
-const themeIcon = document.querySelector('.theme-icon');
-const themeIconMobile = document.getElementById("theme-icon");
+const themeIcon = document.getElementById('theme-icon');
+const themeIconMobile = document.getElementById("theme-icon-mobile");
 
 export function toggleTheme() {
     const htmlElement = document.documentElement;
@@ -24,7 +24,6 @@ export function toggleTheme() {
 
 function changeBgIframe(isDark) {
     const iframes = document.getElementsByClassName("iframeCircuit");
-    console.log('ok');
     Array.from(iframes).forEach((iframe) => {
         const src = iframe.getAttribute("src");
         const urlObj = new URL(src, window.location.origin);
@@ -36,11 +35,11 @@ function changeBgIframe(isDark) {
 
 export function changeIcon(mode) {
     if (mode === "dark") {
-        themeIcon.textContent = '☀️';
-        themeIconMobile.textContent = '☀️';
+        themeIcon.className = "streamline-plump--sun";
+        themeIconMobile.className = "streamline-plump--sun";
     } else {
-        themeIcon.textContent = '🌙';
-        themeIconMobile.textContent = '🌙✨';
+        themeIcon.className = "streamline-plump--moon-stars";
+        themeIconMobile.className = "streamline-plump--moon-stars";
     }
 }
 
@@ -64,14 +63,16 @@ export function toggleMenu() {
 // 菜单栏显示
 export function openMenu() {
     var menu = document.getElementById("menu");
-    var burger = document.getElementById("burger");
+    var menuDiv = document.getElementById("menuDiv");
 
     if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
-        burger.textContent = "X";
+        menuDiv.classList.remove("mdi--hamburger");
+        menuDiv.classList.add("ci--close-md");
     } else {
         menu.classList.add('hidden');
-        burger.textContent = "🍔";
+        menuDiv.classList.add("mdi--hamburger");
+        menuDiv.classList.remove("ci--close-md");
     }
 }
 

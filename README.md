@@ -1,7 +1,7 @@
 # Minimal
 
 <div align="center">
-<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0.1-blue.svg", alt="github"></a>
+<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0.2-blue.svg", alt="github"></a>
 <a href="https://halo.run"><img src="https://img.shields.io/badge/Halo->=2.20-red.svg", alt="github"></a>
 
 </div>
@@ -32,14 +32,14 @@
 # 💪 TODO
 
 - ⬜️ I18n适配
-- ⏳ 图标适配（iconify）
+- ✅ 图标适配（iconify）
 - ⏳ UI，交互改良
 - ⬜️ 分享,点赞按钮
 
 # 😎 使用
 
 <p>
-直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0.1-blue.svg", alt="github"></a>
+直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0.2-blue.svg", alt="github"></a>
 压缩包，后台上传即可。具体安装方式可参考<a href="https://docs.halo.run/user-guide/themes">Halo官方教程</a>
 </p>
 
@@ -174,65 +174,65 @@
   ### 高亮
 
     ```html
-        <pre class="line-numbers" data-line="4-5, 8,11,14,17,20,23-25" m-info="11" m-success="14" m-warning="17" m-error="20,23-25"> 
-            <code class="language-javascript">
+    <pre class="line-numbers" data-line="4-5, 8,11,14,17,20,23-25" m-info="11" m-success="14" m-warning="17" m-error="20,23-25"> 
+        <code class="language-javascript">
 
-                //普通多行高亮
-                console.log("Allo");
-                console.log("World");
+        //普通多行高亮
+        console.log("Allo");
+        console.log("World");
 
-                //普通单行高亮
-                console.log("ok");
+        //普通单行高亮
+        console.log("ok");
 
-                // info高亮
-                alert("Info !");
+        // info高亮
+        alert("Info !");
 
-                // Success高亮
-                alert("Success !");
+        // Success高亮
+        alert("Success !");
 
-                // Warning高亮
-                alert("Warning !");
+        // Warning高亮
+        alert("Warning !");
 
-                // Error高亮
-                alert("Fetal error !");
+        // Error高亮
+        alert("Fetal error !");
 
-                // 自定义多行高亮
-                alert("Fetal error: ");
-                alert("A huge bug");
-                alert("was born !!");
-            </code>
-        </pre>
+        // 自定义多行高亮
+        alert("Fetal error: ");
+        alert("A huge bug");
+        alert("was born !!");
+        </code>
+    </pre>
     ```
 
   ### 文件树
 
     ```html
-        <pre class="language-treeview">
-            <code>
-                root_folder/
-                ├── a_file.txt
-                ├── subfolder/
-                │   ├── nested_file.txt
-                │   └── another_file.txt
-                └── last_file.txt
-            </code>
-        </pre>
+    <pre class="language-treeview">
+        <code>
+        root_folder/
+        ├── a_file.txt
+        ├── subfolder/
+        │   ├── nested_file.txt
+        │   └── another_file.txt
+        └── last_file.txt
+        </code>
+    </pre>
     ```
 
   ### 命令行
 
     ```html
-        <pre class="command-line language-bash" data-user="chris" data-host="remotehost" data-output="2, 4-8" tabindex="0">
-            <code class="language-bash">pwd
-                /usr/home/chris/bin
-                ls -la
-                total 2
-                drwxr-xr-x   2 chris  chris     11 Jan 10 16:48 .
-                drwxr--r-x  45 chris  chris     92 Feb 14 11:10 ..
-                -rwxr-xr-x   1 chris  chris    444 Aug 25  2013 backup
-                -rwxr-xr-x   1 chris  chris    642 Jan 17 14:42 deploy
-            </code>
-        </pre>
+    <pre class="command-line language-bash" data-user="chris" data-host="remotehost" data-output="2, 4-8" tabindex="0">
+        <code class="language-bash">pwd
+        /usr/home/chris/bin
+        ls -la
+        total 2
+        drwxr-xr-x   2 chris  chris     11 Jan 10 16:48 .
+        drwxr--r-x  45 chris  chris     92 Feb 14 11:10 ..
+        -rwxr-xr-x   1 chris  chris    444 Aug 25  2013 backup
+        -rwxr-xr-x   1 chris  chris    642 Jan 17 14:42 deploy
+        </code>
+    </pre>
     ```
 
 # 🔬 开发

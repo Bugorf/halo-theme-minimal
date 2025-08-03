@@ -104,3 +104,15 @@ spec:
           placeholder: 文章过时的月数
           value:
           validation: "number|required"
+    - group: site_style
+      label: 网站样式
+      formSchema:
+        - $formkit: select
+          name: font
+          value: Comic-Sans-MS
+          label: 字体
+          options:
+            - label: Comic-Sans-MS
+              value: Comic-Sans-MS
+            - label: 手写体
+              value: 手写体
