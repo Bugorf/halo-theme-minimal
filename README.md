@@ -1,7 +1,7 @@
 # Minimal
 
 <div align="center">
-<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0.2-blue.svg", alt="github"></a>
+<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0.3-blue.svg", alt="github"></a>
 <a href="https://halo.run"><img src="https://img.shields.io/badge/Halo->=2.20-red.svg", alt="github"></a>
 
 </div>
@@ -39,7 +39,7 @@
 # 😎 使用
 
 <p>
-直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0.2-blue.svg", alt="github"></a>
+直接下载<a href="https://github.com/Bugorf/halo-theme-minimal/releases"><img src="https://img.shields.io/badge/Release-v1.0.3-blue.svg", alt="github"></a>
 压缩包，后台上传即可。具体安装方式可参考<a href="https://docs.halo.run/user-guide/themes">Halo官方教程</a>
 </p>
 

@@ -67,10 +67,11 @@
   <!-- 目录 -->
   <div
     th:if="${#lists.contains(widgets.![value], 'summary')} and ${display}"
+    id="summary"
     class="sidebar-section sticky top-[1.25rem] z-10 mb-10 hidden h-fit translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:block"
   >
     <h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">目录</h3>
-    <div class="toc"></div>
+    <div class="toc scrollbar-none max-h-[calc(100vh-5rem)] overflow-y-auto"></div>
   </div>
 
   <!-- 文章分类 -->
@@ -78,7 +79,7 @@
     th:if="${#lists.contains(widgets.![value], 'categories')}"
     class="sidebar-section mb-10 hidden translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:block"
   >
-    <h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">文章分类</h3>
+    <a href="/categories"><h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">文章分类</h3></a>
     <ul class="list-none" th:with="categories = ${categoryFinder.listAll()}">
       <li class="mb-2" th:each="category : ${categories}">
         <a
@@ -97,7 +98,7 @@
     th:if="${#lists.contains(widgets.![value], 'tags')}"
     class="sidebar-section mb-10 hidden translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:block"
   >
-    <h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">热门标签</h3>
+    <a href="/tags"><h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-text-color">热门标签</h3></a>
     <ul class="flex list-none flex-wrap gap-2" th:with="tags = ${tagFinder.listAll()}">
       <li th:each="tag : ${tags}">
         <a

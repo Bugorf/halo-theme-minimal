@@ -5,6 +5,7 @@
   th:replace="~{modules/layout :: layout(isHome=false, isPost=false, isSinglePage=false, isArch=false)}"
 >
   <th:block th:fragment="content">
+    <h1 th:text="所有标签"></h1>
     <ul class="translate-y-5 animate-[fadeInUp_0.6s_ease_forwards]">
       <li th:each="tag : ${tags}">
         <a th:text="${tag.spec.displayName}" th:href="${tag.status.permalink}"></a>

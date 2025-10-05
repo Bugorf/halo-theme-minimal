@@ -68,6 +68,13 @@
                 </div>
               </a>
 
+              <a href="/categories">
+                <div class="flex flex-1 flex-col items-center">
+                  <span class="text-xl font-medium tabular-nums text-text-color" th:text="${stats.category}"></span>
+                  <span class="text-xs font-light text-text-light" th:text="分类"></span>
+                </div>
+              </a>
+
               <a href="/about">
                 <div class="flex flex-1 flex-col items-center" th:with="p=${postFinder.listAll()}">
                   <!-- 显示全站文章总字数 -->

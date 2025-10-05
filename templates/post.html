@@ -49,9 +49,9 @@
     <div
       class="bg-bg-color/50 mt-10 translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-xl border border-border-color p-4 text-sm text-text-lighter"
     >
-      <p class="mb-1">✍️ 作者：<span th:text="${theme.config.info.profileName} ?: ${site.title}"></span></p>
-      <p class="mb-1">
-        📄 本文采用
+      <p class="m-1">✍️ 作者：<span th:text="${theme.config.info.profileName} ?: ${site.title}"></span></p>
+      <p class="m-1">
+        📄 共享协议：
         <a
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
           class="hover:text-accent-color/80 text-accent-color underline"
@@ -60,10 +60,9 @@
         >
           CC 4.0协议
         </a>
-        发布, 您可在许可范围内使用与修改。
       </p>
 
-      <p class="break-words" th:with="url = ${site.url} + ${post.status.permalink}">
+      <p class="m-1 break-words" th:with="url = ${site.url} + ${post.status.permalink}">
         🔗 原文链接：
         <th:block th:with="tempUrl=${url.replaceAll('//+', '/').replaceAll('^http:', 'https:')}">
           <a
