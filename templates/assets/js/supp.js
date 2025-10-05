@@ -62,18 +62,28 @@ export function toggleMenu() {
 
 // 菜单栏显示
 export function openMenu() {
-    var menu = document.getElementById("menu");
-    var menuDiv = document.getElementById("menuDiv");
+  const menu = document.getElementById("menu");
+  const menuDiv = document.getElementById("menuDiv");
 
-    if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        menuDiv.classList.remove("mdi--hamburger");
-        menuDiv.classList.add("ci--close-md");
-    } else {
-        menu.classList.add('hidden');
-        menuDiv.classList.add("mdi--hamburger");
-        menuDiv.classList.remove("ci--close-md");
-    }
+  const isOpen = menu.classList.contains('expanded');
+
+  if (isOpen) {
+    // 收起菜单
+    menu.classList.remove('expanded');
+    menu.classList.add('grid-rows-[0fr]');
+    menu.classList.remove('grid-rows-[1fr]');
+    
+    menuDiv.classList.add("mdi--hamburger");
+    menuDiv.classList.remove("ci--close-md");
+  } else {
+    // 展开菜单
+    menu.classList.add('expanded');
+    menu.classList.remove('grid-rows-[0fr]');
+    menu.classList.add('grid-rows-[1fr]');
+    
+    menuDiv.classList.remove("mdi--hamburger");
+    menuDiv.classList.add("ci--close-md");
+  }
 }
 
 // 折叠块切换功能

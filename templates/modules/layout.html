@@ -28,17 +28,17 @@
     th:style="'font-family: ' + ${theme.config.site_style.font}"
     class="bg-bg-color text-base leading-relaxed text-text-color transition-colors duration-300 ease-in-out"
   >
-    <div class="mx-auto px-5 py-10 sm:max-w-[80%]">
+    <div class="mx-auto px-5 py-10 lg:max-w-[80%]">
       <th:block th:replace="~{modules/header}"></th:block>
 
       <div
-        class="mb-16 grid grid-cols-1 gap-10 md:grid-cols-[1fr_250px] md:gap-16"
+        class="mb-16 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_250px] lg:gap-16"
         th:with="stats = ${siteStatsFinder.getStats()}"
       >
         <!-- 站点信息(小屏幕版) -->
         <div
           th:if="${isHome}"
-          class="sidebar-section mb-10 translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 sm:hidden"
+          class="sidebar-section mb-10 translate-y-5 animate-[fadeInUp_0.6s_ease_forwards] rounded-lg bg-card-bg p-5 opacity-0 lg:hidden"
         >
           <div class="text-center">
             <div
@@ -65,6 +65,13 @@
                 <div class="flex flex-1 flex-col items-center">
                   <span class="text-xl font-medium tabular-nums text-text-color" th:text="${stats.post}"></span>
                   <span class="text-xs font-light text-text-light" th:text="文章"></span>
+                </div>
+              </a>
+
+              <a href="/categories">
+                <div class="flex flex-1 flex-col items-center">
+                  <span class="text-xl font-medium tabular-nums text-text-color" th:text="${stats.category}"></span>
+                  <span class="text-xs font-light text-text-light" th:text="分类"></span>
                 </div>
               </a>
 
@@ -125,7 +132,7 @@
 
     <!-- 小屏幕黑夜模式按钮 -->
     <button
-      class="themeToggleBtn fixed bottom-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl text-white dark:bg-white dark:text-black sm:hidden"
+      class="themeToggleBtn fixed bottom-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-black text-2xl text-white dark:bg-white dark:text-black lg:hidden"
     >
       <span id="theme-icon-mobile"></span>
     </button>

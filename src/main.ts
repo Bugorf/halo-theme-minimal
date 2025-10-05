@@ -38,7 +38,7 @@ function initializeTocbot() {
   tocbot.init({
     tocSelector: ".toc",
     contentSelector: "#content",
-    headingSelector: "h1, h2, h3, h4",
+    headingSelector: "h1, h2, h3",
     extraListClasses: "space-y-1 dark:border-slate-500",
     extraLinkClasses:
       "group flex items-center justify-between rounded py-1 px-1.5 transition-all hover:bg-gray-100 text-sm opacity-80 dark:hover:bg-slate-700 dark:text-slate-50",
@@ -50,6 +50,14 @@ function initializeTocbot() {
   });
 }
 
+// 没有标题时隐藏目录
+const toc = document.querySelector<HTMLElement>("#summary");
+const hasHeadings = document.querySelectorAll("#content h2, #content h3").length > 0;
+
+if (!hasHeadings && toc) {
+  toc.style.display = "none";
+}
+
 // 临时办法：防止高亮区块偏移
 window.addEventListener("load", () => {
   Prism.highlightAll();
@@ -59,6 +67,15 @@ window.addEventListener("load", () => {
 window.addEventListener("DOMContentLoaded", () => {
   initializeTocbot();
   applyPrismTheme();
+
+  document.querySelectorAll("table").forEach((table) => {
+    if (!table.closest(".table-container")) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "table-container";
+      table.parentNode?.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  });
 
   const theme = document.documentElement.getAttribute("data-theme");
   changeIcon(theme);
