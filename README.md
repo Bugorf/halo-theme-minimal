@@ -14,7 +14,7 @@
 
 部分功能实现参考Halo默认主题 [Earth](https://github.com/halo-dev/theme-earth)，在此由衷表示感谢。
 
-## 效果预览可前往 👉 [𝓜.𝓦𝓱𝓲𝓽𝓮’𝓼 𝓫𝓵𝓸𝓰](https://www.alloworld.me/archives/components-preview)
+## 效果预览可前往 👉 [𝓜.𝓦𝓱𝓲𝓽𝓮’𝓼 𝓫𝓵𝓸𝓰](https://www.allomaker.com/archives/components-preview)
 
 # 👀 功能
 
